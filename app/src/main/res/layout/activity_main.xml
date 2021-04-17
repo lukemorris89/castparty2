@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.castparty2.ui.MainActivity">
+
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.motion.widget.MotionLayout
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            app:layoutDescription="@xml/collapsing_toolbar_scene"
+            tools:showPaths="true">
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/main_nested_scrollview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintTop_toBottomOf="@id/toolbar_arc"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+                <androidx.fragment.app.FragmentContainerView
+                    android:id="@+id/nav_host_fragment"
+                    android:name="androidx.navigation.fragment.NavHostFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:defaultNavHost="true"
+                    app:navGraph="@navigation/nav_graph"/>
+
+            </androidx.core.widget.NestedScrollView>
+
+            <com.github.florent37.shapeofview.shapes.ArcView
+                android:id="@+id/toolbar_arc"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                app:shape_arc_height="20dp"
+                app:shape_arc_position="bottom"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginBottom="-20dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/purple_bg_1"
+                    android:scaleType="centerCrop"/>
+
+            </com.github.florent37.shapeofview.shapes.ArcView>
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:title=""
+                android:theme="@style/ToolbarTheme"/>
+
+            <TextView
+                android:id="@+id/toolbar_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/app_name"
+                android:textColor="@color/white"
+                android:textSize="32sp"
+                app:layout_constraintTop_toBottomOf="@id/toolbar_image"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <ImageView
+                android:id="@+id/toolbar_image"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/app_icon"/>
+
+
+        </androidx.constraintlayout.motion.widget.MotionLayout>
+
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/nav_view"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:fitsSystemWindows="true"
+            android:background="@color/white"
+            app:itemTextAppearance="@style/NavDrawerTheme"
+            app:itemTextColor="@color/midGrey"
+            app:itemIconTint="@color/colorPrimary"
+            app:menu="@menu/drawer_menu"
+            app:headerLayout="@layout/nav_header"/>
+    </androidx.drawerlayout.widget.DrawerLayout>
+</layout>

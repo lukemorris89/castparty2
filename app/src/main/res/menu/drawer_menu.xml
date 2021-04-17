@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group
+        android:id="@+id/menu_items_main"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_host_fragment"
+            android:icon="@drawable/outline_home_24"
+            android:title="@string/home" />
+        <item
+            android:id="@+id/party_fragment"
+            android:icon="@drawable/outline_party_24"
+            android:title="@string/party"/>
+        <item
+            android:id="@+id/podcasts_fragment"
+            android:icon="@drawable/outline_podcasts_24"
+            android:title="@string/podcasts" />
+        <item
+            android:id="@+id/saved_fragment"
+            android:icon="@drawable/outline_star_24"
+            android:title="@string/saved" />
+
+    </group>
+
+    <group
+        android:id="@+id/menu_items_misc"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/about"
+            android:title="About"
+            android:icon="@drawable/outline_about_24"/>
+    <item
+        android:id="@+id/logout"
+        android:title="Logout"
+        android:icon="@drawable/outline_logout_24"/>
+    </group>
+</menu>
