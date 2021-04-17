@@ -50,7 +50,7 @@ class HomeFragment : Fragment() {
 
     fun setUpListeners() {
         binding.dismissButton.setOnClickListener {
-            binding.homeMotionLayout.transitionToEnd()
+            binding.homeContentMotionLayout.transitionToEnd()
 
         }
     }
