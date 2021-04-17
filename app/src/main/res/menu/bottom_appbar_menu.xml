@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+        <item
+            android:id="@+id/fragment_home"
+            android:icon="@drawable/outline_home_24"
+            android:title="@string/home"
+            android:contentDescription="@string/home"
+            app:showAsAction="ifRoom"/>
+        <item
+            android:id="@+id/fragment_favourites"
+            android:icon="@drawable/outline_star_24"
+            android:title="@string/favourites"
+            android:contentDescription="@string/favourites"
+            app:showAsAction="ifRoom"/>
+        <item
+            android:id="@+id/search"
+            android:icon="@drawable/outline_search_24"
+            android:title="@string/search"
+            android:contentDescription="@string/search"
+            app:showAsAction="ifRoom"/>
+        <item
+            android:id="@+id/fragment_account"
+            android:icon="@drawable/outline_account_box_24"
+            android:title="@string/account"
+            android:contentDescription="@string/account"
+            app:showAsAction="ifRoom"/>
+        <item
+            android:id="@+id/more"
+            android:title="More"
+            android:contentDescription="More"
+            app:showAsAction="never"
+            />
+</menu>

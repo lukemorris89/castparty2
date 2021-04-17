@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.castparty2.ui.MainActivity">
 
-    <androidx.drawerlayout.widget.DrawerLayout
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/drawer_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -35,7 +35,7 @@
             <com.github.florent37.shapeofview.shapes.ArcView
                 android:id="@+id/toolbar_arc"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="200dp"
                 app:shape_arc_height="20dp"
                 app:shape_arc_position="bottom"
                 app:layout_constraintTop_toTopOf="parent"
@@ -76,17 +76,90 @@
 
         </androidx.constraintlayout.motion.widget.MotionLayout>
 
-        <com.google.android.material.navigation.NavigationView
-            android:id="@+id/nav_view"
+        <com.google.android.material.bottomappbar.BottomAppBar
+            android:id="@+id/bottomAppBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            style="@style/Widget.MaterialComponents.BottomAppBar.Colored"
+            app:hideOnScroll="true">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageButton
+                    android:id="@+id/home_menu_item"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="8dp"
+                    android:src="@drawable/outline_home_24"
+                    android:backgroundTint="@android:color/transparent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/favourites_menu_item"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageButton
+                    android:id="@+id/favourites_menu_item"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/outline_star_24"
+                    android:backgroundTint="@android:color/transparent"
+                    app:layout_constraintBottom_toBottomOf="@+id/home_menu_item"
+                    app:layout_constraintEnd_toStartOf="@+id/placeholder"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toEndOf="@+id/home_menu_item" />
+
+                <View
+                    android:id="@+id/placeholder"
+                    android:layout_width="70dp"
+                    android:layout_height="0dp"
+                    android:visibility="invisible"
+                    android:backgroundTint="@android:color/transparent"
+                    app:layout_constraintBottom_toBottomOf="@+id/home_menu_item"
+                    app:layout_constraintEnd_toStartOf="@+id/account_menu_item"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toEndOf="@+id/favourites_menu_item"
+                    app:layout_constraintTop_toTopOf="@+id/home_menu_item" />
+
+                <ImageButton
+                    android:id="@+id/account_menu_item"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/outline_account_box_24"
+                    android:backgroundTint="@android:color/transparent"
+                    app:layout_constraintBottom_toBottomOf="@+id/home_menu_item"
+                    app:layout_constraintEnd_toStartOf="@+id/search_menu_item"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toEndOf="@+id/placeholder" />
+
+                <ImageButton
+                    android:id="@+id/search_menu_item"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/outline_search_24"
+                    android:backgroundTint="@android:color/transparent"
+                    app:layout_constraintBottom_toBottomOf="@+id/home_menu_item"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toEndOf="@+id/account_menu_item"
+                    app:layout_constraintTop_toTopOf="@+id/home_menu_item" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.bottomappbar.BottomAppBar>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="start"
-            android:fitsSystemWindows="true"
-            android:background="@color/white"
-            app:itemTextAppearance="@style/NavDrawerTheme"
-            app:itemTextColor="@color/midGrey"
-            app:itemIconTint="@color/colorPrimary"
-            app:menu="@menu/drawer_menu"
-            app:headerLayout="@layout/nav_header"/>
-    </androidx.drawerlayout.widget.DrawerLayout>
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_party"
+            app:tint="@color/white"
+            app:layout_anchor="@id/bottomAppBar"
+            app:backgroundTint="@color/colorPrimaryDark" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>
