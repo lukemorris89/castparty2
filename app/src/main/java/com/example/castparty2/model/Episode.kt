@@ -1,4 +1,4 @@
-package com.example.castparty.model
+package com.example.castparty2.model
 
 import androidx.annotation.Keep
 import androidx.room.Entity

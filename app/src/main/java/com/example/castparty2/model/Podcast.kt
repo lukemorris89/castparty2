@@ -4,7 +4,7 @@ import androidx.annotation.Keep
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.example.castparty.model.Episode
+import com.example.castparty2.model.Episode
 import com.google.gson.annotations.SerializedName
 
 @Keep

@@ -1,9 +1,9 @@
-package com.example.castparty2.utils;
+package com.example.castparty2.utils
 
-import androidx.room.TypeConverter;
-import com.example.castparty.model.Episode;
-import com.example.castparty2.model.Podcast;
-import com.example.castparty2.model.Session;
+import androidx.room.TypeConverter
+import com.example.castparty2.model.Episode
+import com.example.castparty2.model.Podcast
+import com.example.castparty2.model.Session
 import com.google.gson.GsonBuilder
 
 class Converters {

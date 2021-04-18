@@ -1,8 +1,8 @@
 package com.example.castparty2.network
 
-import com.example.castparty.model.Episode
 import com.example.castparty2.BuildConfig
 import com.example.castparty2.model.BestPodcastsList
+import com.example.castparty2.model.Episode
 import com.example.castparty2.model.Podcast
 import com.example.castparty2.utils.BASE_URL
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory

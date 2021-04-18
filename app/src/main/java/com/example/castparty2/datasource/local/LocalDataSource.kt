@@ -1,13 +1,13 @@
 package com.example.castparty2.datasource.local;
 
 import androidx.lifecycle.LiveData
-import com.example.castparty.model.Episode
-import com.example.castparty2.database.CastPartyDB
+import com.example.castparty2.model.Episode
+import com.example.castparty2.database.CastParty2DB
 import com.example.castparty2.model.Podcast
 import com.example.castparty2.model.Session
 
 class LocalDataSource internal constructor(
-    database: CastPartyDB
+    database: CastParty2DB
 ) {
 
     private val podcastDao = database.podcastDao()

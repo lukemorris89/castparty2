@@ -1,10 +1,10 @@
 package com.example.castparty2.database
 
 import androidx.lifecycle.LiveData
-import com.example.castparty.model.Episode
 import com.example.castparty2.datasource.local.LocalDataSource
 import com.example.castparty2.datasource.remote.RemoteDataSource
 import com.example.castparty2.model.BestPodcastsList
+import com.example.castparty2.model.Episode
 import com.example.castparty2.model.Podcast
 import com.example.castparty2.model.Session
 import retrofit2.Call
