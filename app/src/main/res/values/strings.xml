@@ -6,4 +6,10 @@
     <string name="party">Party</string>
     <string name="podcasts">Podcasts</string>
     <string name="saved">Saved</string>
+    <string name="favourites">Favourites</string>
+    <string name="account">Account</string>
+    <string name="search">Search</string>
+    <string name="logout">Logout</string>
+    <string name="about">About</string>
+    <string name="intent_string">Join me on CastParty with code %1s</string>
 </resources>

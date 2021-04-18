@@ -1,4 +1,4 @@
-package com.example.castparty2
+package com.example.castparty2.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import com.example.castparty2.R
 import com.example.castparty2.databinding.FragmentHomeBinding
 import java.util.*
 
@@ -26,8 +27,7 @@ class HomeFragment : Fragment() {
             false
         )
 
-
-
+        
         setWelcomeText()
 
         setUpListeners()
@@ -50,8 +50,7 @@ class HomeFragment : Fragment() {
 
     fun setUpListeners() {
         binding.dismissButton.setOnClickListener {
-            binding.homeMotionLayout.transitionToEnd()
-
+            binding.homeContentMotionLayout.transitionToEnd()
         }
     }
 
