@@ -27,8 +27,7 @@ class HomeFragment : Fragment() {
             false
         )
 
-
-
+        
         setWelcomeText()
 
         setUpListeners()
@@ -52,7 +51,6 @@ class HomeFragment : Fragment() {
     fun setUpListeners() {
         binding.dismissButton.setOnClickListener {
             binding.homeContentMotionLayout.transitionToEnd()
-
         }
     }
 
