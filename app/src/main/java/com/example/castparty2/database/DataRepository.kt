@@ -3,10 +3,7 @@ package com.example.castparty2.database
 import androidx.lifecycle.LiveData
 import com.example.castparty2.datasource.local.LocalDataSource
 import com.example.castparty2.datasource.remote.RemoteDataSource
-import com.example.castparty2.model.BestPodcastsList
-import com.example.castparty2.model.Episode
-import com.example.castparty2.model.Podcast
-import com.example.castparty2.model.Session
+import com.example.castparty2.model.*
 import retrofit2.Call
 
 class DataRepository(
@@ -95,5 +92,21 @@ class DataRepository(
 
     fun getAllSessionIds(): List<String> {
         return localDataSource.getAllSessionIds()
+    }
+
+    fun getCountCategories(): Int {
+        return localDataSource.getCountCategories()
+    }
+
+    fun getCategories(): List<Category> {
+        return localDataSource.getCategories()
+    }
+
+    fun downloadCategories(): Call<CategoryList> {
+        return remoteDataSource.downloadCategories()
+    }
+
+    fun insertCategories(categories: List<Category>) {
+        return localDataSource.insertCategories(categories)
     }
 }

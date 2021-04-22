@@ -3,6 +3,7 @@ package com.example.castparty2.datasource.local;
 import androidx.lifecycle.LiveData
 import com.example.castparty2.model.Episode
 import com.example.castparty2.database.CastParty2DB
+import com.example.castparty2.model.Category
 import com.example.castparty2.model.Podcast
 import com.example.castparty2.model.Session
 
@@ -13,6 +14,7 @@ class LocalDataSource internal constructor(
     private val podcastDao = database.podcastDao()
     private val episodeDao = database.episodeDao()
     private val sessionDao = database.sessionDao()
+    private val categoryDao = database.categoryDao()
 
     fun getPodcasts(): List<Podcast> {
         return podcastDao.getPodcasts()
@@ -84,5 +86,17 @@ class LocalDataSource internal constructor(
 
     fun getAllSessionIds(): List<String> {
         return sessionDao.getAllSessionIds()
+    }
+
+    fun getCountCategories(): Int {
+        return categoryDao.getCountCategories()
+    }
+
+    fun getCategories(): List<Category> {
+        return categoryDao.getCategories()
+    }
+
+    fun insertCategories(categories: List<Category>) {
+        return categoryDao.insertCategories(categories)
     }
 }

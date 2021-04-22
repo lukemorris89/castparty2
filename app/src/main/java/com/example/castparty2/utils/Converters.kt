@@ -1,6 +1,7 @@
 package com.example.castparty2.utils
 
 import androidx.room.TypeConverter
+import com.example.castparty2.model.Category
 import com.example.castparty2.model.Episode
 import com.example.castparty2.model.Podcast
 import com.example.castparty2.model.Session
@@ -31,7 +32,7 @@ class Converters {
         gson.fromJson(value, Array<Podcast>::class.java).toMutableList()
 
     @TypeConverter
-    fun listEpisodeToJson(value: List<Episode>) = gson.toJson(value)
+    fun listEpisodeToJson(value: List<Episode>?) = gson.toJson(value)
 
     @TypeConverter
     fun jsonToListEpisode(value: String) =
@@ -47,4 +48,15 @@ class Converters {
     @TypeConverter
     fun jsonToSession(value: String) =
         gson.fromJson(value, Session::class.java)
+
+    @TypeConverter
+    fun jsonToCategory(value: String) =
+        gson.fromJson(value, Category::class.java)
+
+    @TypeConverter
+    fun listCategoryToJson(value: List<Category>) = gson.toJson(value)
+
+    @TypeConverter
+    fun jsonToListCategory(value: String) =
+        gson.fromJson(value, Array<Category>::class.java).toMutableList()
 }

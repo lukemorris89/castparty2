@@ -9,15 +9,15 @@ import com.google.gson.annotations.SerializedName
 @Entity(tableName = "episodes")
 data class Episode(
     @PrimaryKey
-    val id: String,
-    val title: String,
+    override val id: String,
+    override val title: String,
     val link: String,
     val audio: String,
-    val image: String,
+    override val image: String,
     val thumbnail: String,
     val description: String,
     @SerializedName("audio_length_sec")
     val audioLengthSec: Int,
     var podcastId: String? = null,
     var downloadId: Long? = null
-)
+) : Content

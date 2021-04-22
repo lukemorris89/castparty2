@@ -5,6 +5,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.castparty2.ui.main.MainFragment">
 
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.castparty2.ui.home.HomeViewModel" />
+    </data>
+
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -114,57 +120,73 @@
 
                         <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="match_parent"
-                            android:layout_height="200dp"
-                            android:layout_marginTop="10dp"
-                            android:paddingStart="30dp"
-                            android:paddingEnd="12dp"
-                            android:paddingTop="12dp">
+                            android:layout_height="80dp">
+
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/categpry_cardview"
+                                android:layout_height="40dp"
+                                android:layout_width="0dp"
+                                android:layout_marginTop="20dp"
+                                android:layout_marginStart="30dp"
+                                android:layout_marginEnd="10dp"
+                                app:cardElevation="6dp"
+                                app:cardBackgroundColor="@color/colorPrimary"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toStartOf="@id/random_cardview">
 
                             <TextView
                                 android:id="@+id/category_textview"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
                                 android:text="Categories"
                                 android:textSize="18sp"
+                                android:textColor="@color/white"
+                                android:gravity="center"
                                 app:layout_constraintTop_toTopOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"/>
 
-                            <LinearLayout
-                                android:id="@+id/category_view_more_button"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal"
+                            </androidx.cardview.widget.CardView>
+
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/random_cardview"
+                                android:layout_height="40dp"
+                                android:layout_width="0dp"
+                                android:layout_marginTop="20dp"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginEnd="30dp"
+                                android:layout_marginBottom="10dp"
+                                app:cardElevation="6dp"
+                                app:cardBackgroundColor="@color/colorPrimary"
+
+                                app:layout_constraintTop_toTopOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintTop_toTopOf="parent">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="View more"
-                                    android:textSize="16sp"
-                                    android:textColor="@color/colorPrimary"/>
-
-                                <ImageView
-                                    android:layout_width="12dp"
-                                    android:layout_height="12dp"
-                                    android:layout_marginStart="4dp"
-                                    android:layout_gravity="center_vertical"
-                                    android:src="@drawable/outline_arrow_forward_ios_24"/>
-                            </LinearLayout>
+                                app:layout_constraintStart_toEndOf="@id/categpry_cardview">
+                            <TextView
+                                android:id="@+id/random_textview"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="Random"
+                                android:textSize="18sp"
+                                android:textColor="@color/white"
+                                android:gravity="center"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"/>
+                            </androidx.cardview.widget.CardView>
 
                         </androidx.constraintlayout.widget.ConstraintLayout>
 
                         <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="match_parent"
-                            android:layout_height="200dp"
-                            android:paddingStart="32dp"
-                            android:paddingEnd="12dp"
+                            android:layout_height="wrap_content"
                             android:paddingTop="12dp">
 
                             <TextView
                                 android:id="@+id/top_picks_textview"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:paddingStart="32dp"
+                                android:paddingEnd="12dp"
                                 android:text="Top Picks"
                                 android:textSize="18sp"
                                 app:layout_constraintTop_toTopOf="parent"
@@ -192,6 +214,17 @@
                                     android:layout_gravity="center_vertical"
                                     android:src="@drawable/outline_arrow_forward_ios_24"/>
                             </LinearLayout>
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/top_picks_rv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="10dp"
+                                android:orientation="horizontal"
+                                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                                app:layout_constraintTop_toBottomOf="@id/top_picks_button"
+                                app:layout_constraintStart_toStartOf="parent"/>
 
                         </androidx.constraintlayout.widget.ConstraintLayout>
 
