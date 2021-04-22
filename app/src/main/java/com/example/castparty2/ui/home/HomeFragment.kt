@@ -1,4 +1,4 @@
-package com.example.castparty2.ui
+package com.example.castparty2.ui.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,14 +6,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.observe
 import com.example.castparty2.R
 import com.example.castparty2.databinding.FragmentHomeBinding
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.util.*
 
 
 class HomeFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
+    private val viewModel: HomeViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -27,7 +30,9 @@ class HomeFragment : Fragment() {
             false
         )
 
-        
+        binding.viewModel = viewModel
+        binding.lifecycleOwner = viewLifecycleOwner
+
         setWelcomeText()
 
         setUpListeners()
@@ -52,6 +57,17 @@ class HomeFragment : Fragment() {
         binding.dismissButton.setOnClickListener {
             binding.homeContentMotionLayout.transitionToEnd()
         }
+
+        viewModel.podcastList.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
+            if (it != null && it.isNotEmpty()) {
+                binding.topPicksRv.apply {
+                    adapter = HomeRecyclerViewAdapter(requireContext(), it).apply {
+                        onItemClick = {podcast ->
+                        }
+                    }
+                }
+            }
+        })
     }
 
 

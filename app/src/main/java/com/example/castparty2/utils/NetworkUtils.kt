@@ -88,8 +88,8 @@ fun parseBestPodcastJsonResults(jsonResult: JSONObject): ArrayList<Podcast> {
 //}
 
 
-fun parseEpisodeJsonResults(jsonResult: JSONArray): ArrayList<Episode> {
-    val episodesList = ArrayList<Episode>()
+fun parseEpisodeJsonResults(jsonResult: JSONArray): MutableList<Episode?> {
+    val episodesList = mutableListOf<Episode?>()
     for (i in 0 until jsonResult.length()) {
         Log.d("MainViewModel", jsonResult[i].toString())
         val episodeJson = jsonResult.getJSONObject(i)

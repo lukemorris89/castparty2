@@ -1,9 +1,7 @@
 package com.example.castparty2.network
 
 import com.example.castparty2.BuildConfig
-import com.example.castparty2.model.BestPodcastsList
-import com.example.castparty2.model.Episode
-import com.example.castparty2.model.Podcast
+import com.example.castparty2.model.*
 import com.example.castparty2.utils.BASE_URL
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import retrofit2.Call
@@ -50,6 +48,12 @@ interface WebService {
         @Header("X-ListenAPI-Key") apiKey: String = BuildConfig.API_KEY,
         @Path("id") id: String
     ): Call<String>
+
+    @GET("genres")
+    fun getCategories(
+        @Header("X-ListenAPI-Key") apiKey: String = BuildConfig.API_KEY,
+        @Query("top_level_only") topLevelOnly: Int = 1
+    ): Call<CategoryList>
 
 }
 
