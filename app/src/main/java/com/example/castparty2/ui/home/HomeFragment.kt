@@ -6,17 +6,18 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.observe
+import androidx.navigation.findNavController
 import com.example.castparty2.R
 import com.example.castparty2.databinding.FragmentHomeBinding
-import org.koin.androidx.viewmodel.ext.android.viewModel
+import com.example.castparty2.ui.MainViewModel
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import java.util.*
 
 
 class HomeFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
-    private val viewModel: HomeViewModel by viewModel()
+    private val viewModel: MainViewModel by sharedViewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -60,14 +61,19 @@ class HomeFragment : Fragment() {
 
         viewModel.podcastList.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
             if (it != null && it.isNotEmpty()) {
+                binding.topPicksPb.visibility = View.GONE
                 binding.topPicksRv.apply {
                     adapter = HomeRecyclerViewAdapter(requireContext(), it).apply {
-                        onItemClick = {podcast ->
+                        onItemClick = { podcast ->
+                            findNavController().navigate(R.id.podcastFragment)
                         }
                     }
                 }
+            } else {
+                binding.topPicksPb.visibility = View.VISIBLE
             }
         })
+
     }
 
 

@@ -5,7 +5,7 @@ import com.example.castparty2.database.CastParty2DB
 import com.example.castparty2.database.DataRepository
 import com.example.castparty2.datasource.local.LocalDataSource
 import com.example.castparty2.datasource.remote.RemoteDataSource
-import com.example.castparty2.ui.home.HomeViewModel
+import com.example.castparty2.ui.MainViewModel
 import org.koin.android.ext.koin.androidApplication
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
@@ -27,5 +27,5 @@ val appModule = module {
     single { RemoteDataSource() }
     single { DataRepository(get(), get()) }
 
-    viewModel { HomeViewModel(get()) }
+    viewModel { MainViewModel(get()) }
 }

@@ -93,6 +93,6 @@ dependencies {
 
 def getApiKey(){
     Properties props = new Properties()
-    props.load(new FileInputStream(new File('secrets.properties')))
-    return props['API_TOKEN']
+    props.load(new FileInputStream(new File('apiKey.properties')))
+    return props['API_KEY']
 }

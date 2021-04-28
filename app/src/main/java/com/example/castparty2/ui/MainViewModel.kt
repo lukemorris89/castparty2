@@ -1,4 +1,4 @@
-package com.example.castparty2.ui.home
+package com.example.castparty2.ui
 
 import android.util.Log
 import androidx.lifecycle.LiveData
@@ -10,7 +10,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class HomeViewModel(private val dataRepository: DataRepository) : ViewModel() {
+class MainViewModel(private val dataRepository: DataRepository) : ViewModel() {
 
     private val _categoryListLD = MutableLiveData<List<Category>>()
     val categoryListLD: LiveData<List<Category>>

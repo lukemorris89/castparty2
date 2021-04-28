@@ -16,9 +16,6 @@ class HomeRecyclerViewAdapter(val context: Context, val data: List<Content>) :
     RecyclerView.Adapter<HomeRecyclerViewAdapter.ViewHolder>() {
 
     var onItemClick: ((Content) -> Unit)? = null
-    var onFavouriteItemClick: ((Content) -> Unit)? = null
-
-
 
     inner class ViewHolder(private val binding: HomepageRecyclerviewItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -26,9 +23,6 @@ class HomeRecyclerViewAdapter(val context: Context, val data: List<Content>) :
         init {
             binding.recyclerviewCard.setOnClickListener {
                 onItemClick?.invoke(data[adapterPosition])
-            }
-            binding.favouriteButton.setOnClickListener {
-                onFavouriteItemClick?.invoke(data[adapterPosition])
             }
         }
 

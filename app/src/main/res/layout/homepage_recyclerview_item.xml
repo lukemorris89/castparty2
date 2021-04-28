@@ -23,16 +23,6 @@
                 app:layout_constraintTop_toTopOf="parent"
                 android:scaleType="centerCrop"/>
 
-            <ImageView
-                android:id="@+id/favourite_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="@id/rv_image"
-                app:layout_constraintEnd_toEndOf="@id/rv_image"
-                android:layout_margin="4dp"
-                android:src="@drawable/baseline_favorite_border_24"
-                app:tint="@color/white"/>
-
             <TextView
                 android:id="@+id/rv_title"
                 android:layout_width="match_parent"
